@@ -1,0 +1,21 @@
+/* Project cards styling */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Dialog styling */
+:deep(.custom-dialog) {
+  .mat-mdc-dialog-container {
+    border-radius: 12px;
+  }
+}
+
+/* Project card animations */
+.project-card {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}

@@ -1,0 +1,46 @@
+<div class="w-full py-12 px-6 md:px-20">
+  <h2
+    class="md:text-3xl text-2xl font-bold mb-12 text-center text-[var(--color-global)]"
+  >
+    Technical Skills
+  </h2>
+
+  <div class="space-y-10">
+    @for (category of skillsByCategory; track category[0]) {
+      <div>
+        <h3
+          class="text-xl font-bold mb-6 text-[var(--color-global)] uppercase tracking-wider text-sm"
+        >
+          {{ category[0] }}
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          @for (skill of category[1]; track skill.name) {
+            <div
+              class="p-4 rounded-lg bg-[var(--color-menu-bar)] dark:bg-[#2a2a2b] hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <h4 class="font-bold text-[var(--color-text)] mb-3">
+                {{ skill.name }}
+              </h4>
+
+              <!-- PROGRESS BAR -->
+              <div
+                class="w-full h-2 bg-gray-300 dark:bg-gray-600 rounded-full overflow-hidden"
+              >
+                <div
+                  class="h-full bg-[var(--color-global)] rounded-full transition-all duration-500"
+                  [style.width.%]="getProficiency(skill.level)"
+                ></div>
+              </div>
+
+              <!-- LEVEL TEXT -->
+              <p class="text-xs text-[var(--color-text)]/60 mt-2">
+                {{ skill.level }}/5
+              </p>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

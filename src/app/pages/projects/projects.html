@@ -1,0 +1,86 @@
+<div class="flex flex-col justify-center w-full h-full p-6 md:p-20">
+  <h1 class="md:text-3xl text-xl font-bold mb-12 text-[var(--color-global)]">
+    My Projects
+  </h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    @for (project of projects; track project.id) {
+      <div
+        (click)="openProjectDialog(project)"
+        class="p-6 rounded-lg bg-[var(--color-menu-bar)] dark:bg-[#2a2a2b] cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-[var(--color-global)] overflow-hidden"
+      >
+        <!-- PROJECT IMAGE PREVIEW -->
+        @if (project.images && project.images.length > 0) {
+          <img
+            [src]="project.images[0]"
+            [alt]="project.name"
+            class="w-full h-40 object-cover rounded-md mb-4 hover:scale-105 transition-transform duration-300"
+          />
+        } @else {
+          <div
+            class="w-full h-40 bg-gradient-to-br from-[var(--color-global)]/20 to-[var(--color-global)]/10 rounded-md mb-4 flex items-center justify-center"
+          >
+            <span class="text-[var(--color-global)]/60 text-sm font-semibold"
+              >No image available</span
+            >
+          </div>
+        }
+
+        <!-- COMPANY & PERIOD -->
+        <div class="flex justify-between items-start mb-3">
+          <span class="text-sm font-bold text-[var(--color-global)]">
+            {{ project.company }}
+          </span>
+          <span class="text-xs text-[var(--color-text)]/60">
+            {{ project.period }}
+          </span>
+        </div>
+
+        <!-- PROJECT NAME -->
+        <h3 class="text-xl font-bold text-[var(--color-text)] mb-2">
+          {{ project.name }}
+        </h3>
+
+        <!-- POSITION -->
+        <p class="text-sm text-[var(--color-global)] font-semibold mb-3">
+          {{ project.position }}
+        </p>
+
+        <!-- DESCRIPTION -->
+        <p class="text-sm text-[var(--color-text)]/80 leading-relaxed mb-4">
+          {{ project.description }}
+        </p>
+
+        <!-- SKILLS PREVIEW -->
+        <div class="flex flex-wrap gap-2">
+          @for (skill of project.skills.slice(0, 3); track skill) {
+            <span
+              class="flex items-center gap-1 text-xs px-2 py-1 rounded bg-[var(--color-global)]/20 text-[var(--color-global)]"
+              [title]="skill"
+            >
+              @if (hasIcon(skill)) {
+                <fa-icon
+                  [icon]="getIconDefinition(skill)"
+                  class="text-xs"
+                ></fa-icon>
+              }
+              {{ skill }}
+            </span>
+          }
+          @if (project.skills.length > 3) {
+            <span
+              class="text-xs px-2 py-1 rounded bg-gray-700 dark:bg-gray-600 text-gray-100 dark:text-gray-200"
+            >
+              +{{ project.skills.length - 3 }} more
+            </span>
+          }
+        </div>
+
+        <!-- CLICK TO VIEW -->
+        <p class="text-xs text-[var(--color-global)] mt-4 font-semibold">
+          Click to view details →
+        </p>
+      </div>
+    }
+  </div>
+</div>

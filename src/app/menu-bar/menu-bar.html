@@ -1,0 +1,52 @@
+<div
+  class="flex flex-col w-full h-full bg-[var(--color-menu-bar)] text-white rounded-r-sm p-5 fade-in-element items-center px-10"
+>
+  <!-- HEADER GORE -->
+  <div class="flex md:justify-center justify-between w-full">
+    <h1
+      class="text-3xl p-2 font-signature font-bold text-[var(--color-global)] text-nowrap relative inline-block text-3xl font-bold text-[var(--color-global)] corner-border"
+    >
+      Predrag Trajković
+    </h1>
+    <button
+      class="md:hidden text-2xl text-[var(--color-global)]"
+      (click)="toggleMenu()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <!-- NAVBAR CENTRIRAN -->
+  <div class="flex flex-col justify-center items-center flex-1 w-full pt-4">
+    @if (menuOpen()) {
+      <nav class="flex flex-col w-full gap-6 fade-in-element self-center">
+        <a
+          routerLink="/summary"
+          routerLinkActive="active-link"
+          class="nav-link"
+        >
+          <mat-icon>home</mat-icon>
+          <span>Summary</span>
+        </a>
+
+        <a
+          routerLink="/projects"
+          routerLinkActive="active-link"
+          class="nav-link"
+        >
+          <mat-icon>work</mat-icon>
+          <span>Projects</span>
+        </a>
+
+        <a
+          routerLink="/contact"
+          routerLinkActive="active-link"
+          class="nav-link"
+        >
+          <mat-icon>person</mat-icon>
+          <span>Contact</span>
+        </a>
+      </nav>
+    }
+  </div>
+</div>

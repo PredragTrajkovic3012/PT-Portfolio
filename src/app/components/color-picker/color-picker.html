@@ -1,0 +1,42 @@
+<div class="fixed bottom-5 right-5 flex flex-col gap-3 z-50">
+  <!-- Dugme tockic -->
+  <div class="relative">
+    <button
+      (click)="togglePicker()"
+      class="flex items-center justify-center bg-gray-800 text-white p-3 rounded-full shadow-custom cursor-pointer"
+    >
+      <mat-icon class="text-white text-sm">settings</mat-icon>
+    </button>
+
+    <!-- Popup opcije sa @if i @for -->
+
+    @if (colorPicker()) {
+      <div
+        class="absolute bottom-12 right-0 flex gap-2 bg-[var(--color-menu-bar)] p-3 rounded-lg shadow-custom"
+      >
+        @for (color of colors; track $index) {
+          <button
+            (click)="selectColor(color)"
+            [style.backgroundColor]="color.value"
+            class="w-8 h-8 rounded-full border-2 border-gray-300 cursor-pointer hover:scale-110 transition-transform"
+          ></button>
+        }
+      </div>
+    }
+  </div>
+
+  <button
+    (click)="themeService.toggleDarkMode()"
+    [ngClass]="{
+      'bg-yellow-400': themeService.darkMode(),
+      'bg-blue-300': !themeService.darkMode(),
+    }"
+    class="bg-yellow-400 flex items-center justify-center text-white p-3 rounded-full shadow-custom cursor-pointer"
+  >
+    @if (themeService.darkMode()) {
+      <mat-icon class="text-white text-sm">sunny</mat-icon>
+    } @else {
+      <mat-icon class="text-white text-sm">mode_night</mat-icon>
+    }
+  </button>
+</div>

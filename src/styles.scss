@@ -1,1 +1,184 @@
-/* You can add global styles to this file, and also import other style files */
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use "@angular/material" as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+  --color-primary: #912b12;
+  --color-bg: #ffffff;
+  --color-text: #222222;
+  --color-global: #2563eb;
+  --font-nunito: "Nunito", sans-serif;
+  --font-signature: "Dancing Script", cursive;
+  --color-menu-bar: #e6e6e6;
+}
+
+.dark {
+  --color-primary: #129168;
+  --color-bg: #202023;
+  --color-text: #f3f4f6;
+  --font-nunito: "Nunito", sans-serif;
+  --color-menu-bar: #29292a;
+}
+
+@theme {
+  --color-menu-bar: #29292a;
+  --color-light-menu-bar: #e6e6e6;
+  --color-silver: #cbd5e1;
+  --color-silver-light: #f3f4f6;
+  --color-silver-dark: #9ca3af;
+}
+
+@layer utilities {
+  .shadow-custom {
+    @apply shadow-[0_4px_10px_rgba(0,0,0,0.4)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.7)];
+  }
+  .font-signature {
+    font-family: var(--font-signature);
+  }
+
+  .corner-border {
+    @apply relative inline-block;
+  }
+
+  .corner-border::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    border-left: 2px solid var(--color-global);
+    border-bottom: 2px solid var(--color-global);
+  }
+
+  .corner-border::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1rem;
+    height: 1rem;
+    border-top: 2px solid var(--color-global);
+    border-right: 2px solid var(--color-global);
+  }
+}
+
+.theme-blue {
+  --color-global: #2563eb;
+}
+.theme-red {
+  --color-global: #ea2208;
+}
+.theme-green {
+  --color-global: #22c55e;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-nunito);
+}
+
+.standard-panel-shadow {
+  box-shadow:
+    3.2px 0px 3.2px 0px #00000040,
+    0px 3.2px 0px 0px #000000,
+    -3.2px 0px 3.2px 0px #00000040;
+}
+
+.nav-link {
+  @apply relative flex items-center gap-3 text-lg font-medium
+         text-[var(--color-text)] transition-colors duration-300;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 h-[2px] w-0
+         bg-[var(--color-global)]
+         transition-all duration-300;
+}
+
+.nav-link:hover {
+  @apply text-[var(--color-global)];
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.active-link {
+  @apply text-[var(--color-global)];
+}
+
+.active-link::after {
+  width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.fade-in-element {
+  animation: fadeIn 2s forwards; /* Apply the animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.profile-image-animate {
+  animation: profileImageAppear 0.8s ease-out forwards;
+}
+
+@keyframes profileImageAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

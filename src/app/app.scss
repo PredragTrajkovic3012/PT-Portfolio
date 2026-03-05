@@ -1,0 +1,40 @@
+/* Modern scrollable content styling */
+.scrollable-content {
+  /* Custom scrollbar styling */
+  scroll-behavior: smooth;
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-global) transparent;
+}
+
+/* Chrome, Safari, and Edge */
+.scrollable-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: var(--color-global);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background-color 0.3s ease;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-global);
+  background-clip: content-box;
+}
+
+/* Dark mode adjustments */
+.dark .scrollable-content {
+  scrollbar-color: var(--color-global) #1a1a1a;
+}
+
+.dark .scrollable-content::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}

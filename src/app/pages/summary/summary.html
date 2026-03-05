@@ -1,0 +1,213 @@
+<div class="flex flex-col justify-center w-full h-full p-6 md:p-20">
+  <h1 class="md:text-3xl text-xl font-bold text-nowrap">
+    Hello, my name is
+    <span
+      class="font-signature md:text-3xl text-xl font-bold text-[var(--color-global)] text-nowrap"
+      >Predrag Trajković</span
+    >
+  </h1>
+  <h2 class="md:text-xl text-lg font-medium mt-4">
+    I’m a
+    <span
+      class="md:text-xl text-lg font-bold text-[var(--color-global)] text-nowrap"
+      >frontend-focused developer</span
+    >
+    based in Serbia
+  </h2>
+  <div class="flex w-full flex-col-reverse md:flex-row items-center gap-8 mt-8">
+    <!-- SUMMARY TEXT -->
+    <div class="md:w-1/2 text-base leading-relaxed">
+      I am a software developer with over five years of professional experience
+      in web development. My career followed a specific path, as I started as a
+      backend developer and gradually transitioned toward frontend development
+      based on project needs and personal interest. Throughout this journey,
+      Angular has been a constant technology in my work, and it is the area
+      where I have the highest level of confidence. I have strong experience in
+      building complex, scalable frontend applications with a focus on clean
+      architecture and maintainability. I actively follow modern frontend trends
+      and best practices. I regularly work with the latest Angular versions and
+      adopt new features such as signals to improve state management and
+      performance. My background in backend development helps me communicate
+      effectively with backend teams and understand full-stack requirements. I
+      am comfortable working in enterprise environments with complex business
+      logic and large datasets. I value code quality, performance, and long-term
+      sustainability of applications. I am motivated to continuously learn and
+      apply modern solutions and technologies in real-world projects.
+    </div>
+
+    <!-- IMAGE -->
+    <div class="md:w-1/2 flex justify-center">
+      <img
+        #profileImg
+        [src]="profileImage()"
+        alt="Profile image"
+        class="w-64 h-fit object-cover rounded-2xl shadow-lg profile-image-animate"
+      />
+    </div>
+  </div>
+
+  <!-- DOWNLOAD CV BUTTON -->
+  <div class="flex justify-center my-12">
+    <a
+      href="/Predrag Trajkovic CV.pdf"
+      download="Predrag_Trajkovic_CV.pdf"
+      class="px-8 py-3 bg-[var(--color-global)] text-white font-bold text-lg rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2 dark:hover:opacity-90"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+        />
+      </svg>
+      Download CV
+    </a>
+  </div>
+
+  <!-- SKILLS SECTION -->
+  <app-skills></app-skills>
+
+  <!-- REFERENCES SECTION -->
+  <app-references></app-references>
+
+  <!-- HOBBIES SECTION -->
+  <div class="hobbies-section my-16">
+    <h2
+      class="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text-hobbies"
+    >
+      My Passions & Hobbies
+    </h2>
+
+    <div class="hobbies-content grid lg:grid-cols-2 gap-12 items-center">
+      <!-- HOBBIES TEXT -->
+      <div class="hobbies-text">
+        <p class="text-base leading-relaxed mb-6">
+          Beyond coding, I'm an adventurer at heart. I thrive on
+          adrenaline-pumping activities and pushing my limits.
+        </p>
+        <div class="hobby-items space-y-4">
+          <div class="hobby-item flex items-start gap-3">
+            <span class="text-2xl">⛷️</span>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Skiing</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Hitting the slopes is my ultimate escape. There's nothing like
+                fresh powder and mountain peaks.
+              </p>
+            </div>
+          </div>
+          <div class="hobby-item flex items-start gap-3">
+            <span class="text-2xl">🏊</span>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Swimming</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Whether it's open water or pools, swimming keeps me fit and
+                refreshed.
+              </p>
+            </div>
+          </div>
+          <div class="hobby-item flex items-start gap-3">
+            <span class="text-2xl">🎮</span>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Gaming</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Competitive gaming sharpens my problem-solving and strategic
+                thinking skills.
+              </p>
+            </div>
+          </div>
+          <div class="hobby-item flex items-start gap-3">
+            <span class="text-2xl">🎯</span>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Extreme Sports</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Pistol shooting and other extreme activities fuel my adventurous
+                spirit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOBBIES GALLERY -->
+      <div class="hobbies-gallery">
+        <div class="photo-grid grid grid-cols-2 gap-4">
+          @for (image of hobbyImages; track image.src) {
+            <button
+              type="button"
+              (click)="openLightbox(image)"
+              class="photo-item relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group bg-transparent border-0 p-0 cursor-pointer"
+            >
+              <img
+                [src]="image.src"
+                [alt]="image.alt"
+                class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+              />
+              <div
+                class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"
+              ></div>
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              >
+                <svg
+                  class="w-12 h-12 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20.354 15.354A9 9 0 015.646 5.646 9 9 0 0120.354 15.354z"
+                  />
+                </svg>
+              </div>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX OVERLAY -->
+  @if (isLightboxOpen()) {
+    <div class="lightbox-overlay" (click)="onLightboxBackdropClick()">
+      <div class="lightbox-container" (click)="$event.stopPropagation()">
+        <button
+          type="button"
+          (click)="closeLightbox()"
+          class="lightbox-close"
+          aria-label="Close lightbox"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+        @if (selectedImage()) {
+          <img
+            [src]="selectedImage()!.src"
+            [alt]="selectedImage()!.alt"
+            class="lightbox-image"
+          />
+        }
+      </div>
+    </div>
+  }
+</div>

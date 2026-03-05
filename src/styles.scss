@@ -46,6 +46,12 @@ body {
   --font-nunito: "Nunito", sans-serif;
   --font-signature: "Dancing Script", cursive;
   --color-menu-bar: #e6e6e6;
+  --card-bg: #ffffff;
+  --text-color: #1f2937;
+  --input-bg: #ffffff;
+  --skill-card-bg: #f8f9fa;
+  --skill-card-text: #1f2937;
+  --skill-card-border: #e5e7eb;
 }
 
 .dark {
@@ -54,6 +60,12 @@ body {
   --color-text: #f3f4f6;
   --font-nunito: "Nunito", sans-serif;
   --color-menu-bar: #29292a;
+  --card-bg: #1f2937;
+  --text-color: #f3f4f6;
+  --input-bg: #111827;
+  --skill-card-bg: #2a2a2b;
+  --skill-card-text: #f3f4f6;
+  --skill-card-border: #374151;
 }
 
 @theme {

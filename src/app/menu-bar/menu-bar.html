@@ -17,13 +17,17 @@
   </div>
 
   <!-- NAVBAR CENTRIRAN -->
-  <div class="flex flex-col justify-center items-center flex-1 w-full pt-4">
+  <div
+    class="flex flex-col justify-center items-center flex-1 w-full"
+    [class.pt-4]="menuOpen()"
+  >
     @if (menuOpen()) {
       <nav class="flex flex-col w-full gap-6 fade-in-element self-center">
         <a
           routerLink="/summary"
           routerLinkActive="active-link"
           class="nav-link"
+          (click)="closeMenuOnMobile()"
         >
           <mat-icon>home</mat-icon>
           <span>Summary</span>
@@ -33,6 +37,7 @@
           routerLink="/projects"
           routerLinkActive="active-link"
           class="nav-link"
+          (click)="closeMenuOnMobile()"
         >
           <mat-icon>work</mat-icon>
           <span>Projects</span>
@@ -42,6 +47,7 @@
           routerLink="/contact"
           routerLinkActive="active-link"
           class="nav-link"
+          (click)="closeMenuOnMobile()"
         >
           <mat-icon>person</mat-icon>
           <span>Contact</span>

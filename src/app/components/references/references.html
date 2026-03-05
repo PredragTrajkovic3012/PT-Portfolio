@@ -8,7 +8,7 @@
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     @for (ref of references; track ref.name) {
       <div
-        class="flex flex-col items-center p-6 rounded-2xl bg-[var(--color-menu-bar)] dark:bg-[#2a2a2b] shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer reference-card"
+        class="flex flex-col items-center p-6 rounded-2xl bg-[var(--skill-card-bg)] shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer reference-card border border-[var(--skill-card-border)]"
       >
         <!-- IMAGE -->
         <img
@@ -17,7 +17,9 @@
           class="w-28 h-28 rounded-full object-cover mb-4 shadow-md border-4 border-[var(--color-global)]"
         />
 
-        <h3 class="text-lg font-bold text-center text-[var(--color-text)] mb-1">
+        <h3
+          class="text-lg font-bold text-center text-[var(--skill-card-text)] mb-1"
+        >
           {{ ref.name }}
         </h3>
 
@@ -35,7 +37,7 @@
 
         <!-- DESCRIPTION -->
         <p
-          class="text-sm text-center text-[var(--color-text)]/80 leading-relaxed mb-4"
+          class="text-sm text-center text-[var(--skill-card-text)]/80 leading-relaxed mb-4"
         >
           {{ ref.description }}
         </p>

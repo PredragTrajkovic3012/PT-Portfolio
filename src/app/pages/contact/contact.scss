@@ -149,6 +149,9 @@
   background: var(--input-bg, #ffffff);
   color: var(--text-color, #1f2937);
   font-family: inherit;
+  max-width: 100%;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
 
   &:focus {
     outline: none;
@@ -222,44 +225,7 @@
   }
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .info-card,
-  .form-card {
-    background: #1f2937;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-
-    &:hover {
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    h3 {
-      color: #f3f4f6;
-    }
-  }
-
-  .contact-item {
-    background: rgba(59, 130, 246, 0.15);
-
-    &:hover {
-      background: rgba(59, 130, 246, 0.25);
-    }
-  }
-
-  .social-link {
-    background: rgba(59, 130, 246, 0.15);
-  }
-
-  .form-input {
-    background: #111827;
-    color: #f3f4f6;
-    border-color: #374151;
-
-    &::placeholder {
-      color: #6b7280;
-    }
-  }
-}
+/* Dark mode support - removed, now using CSS variables */
 
 /* Responsive design */
 @media (max-width: 768px) {

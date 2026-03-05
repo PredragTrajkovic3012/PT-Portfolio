@@ -7,7 +7,7 @@
     @for (project of projects; track project.id) {
       <div
         (click)="openProjectDialog(project)"
-        class="p-6 rounded-lg bg-[var(--color-menu-bar)] dark:bg-[#2a2a2b] cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-[var(--color-global)] overflow-hidden"
+        class="p-6 rounded-lg bg-[var(--skill-card-bg)] cursor-pointer hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-l-4 border-[var(--color-global)] overflow-hidden border border-[var(--skill-card-border)]"
       >
         <!-- PROJECT IMAGE PREVIEW -->
         @if (project.images && project.images.length > 0) {
@@ -31,13 +31,13 @@
           <span class="text-sm font-bold text-[var(--color-global)]">
             {{ project.company }}
           </span>
-          <span class="text-xs text-[var(--color-text)]/60">
+          <span class="text-xs text-[var(--skill-card-text)]/60">
             {{ project.period }}
           </span>
         </div>
 
         <!-- PROJECT NAME -->
-        <h3 class="text-xl font-bold text-[var(--color-text)] mb-2">
+        <h3 class="text-xl font-bold text-[var(--skill-card-text)] mb-2">
           {{ project.name }}
         </h3>
 
@@ -47,7 +47,9 @@
         </p>
 
         <!-- DESCRIPTION -->
-        <p class="text-sm text-[var(--color-text)]/80 leading-relaxed mb-4">
+        <p
+          class="text-sm text-[var(--skill-card-text)]/80 leading-relaxed mb-4"
+        >
           {{ project.description }}
         </p>
 

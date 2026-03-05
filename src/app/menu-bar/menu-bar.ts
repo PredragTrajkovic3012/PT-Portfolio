@@ -10,11 +10,23 @@ import { MatIconModule } from '@angular/material/icon';
 export class MenuBar {
   protected readonly title = signal('my-portfolio');
 
-  ngOnInit(): void {}
+  menuOpen = signal(false);
 
-  menuOpen = signal(true);
+  ngOnInit(): void {
+    // Open menu on desktop by default
+    if (window.innerWidth >= 768) {
+      this.menuOpen.set(true);
+    }
+  }
 
   toggleMenu() {
     this.menuOpen.update((v) => !v);
+  }
+
+  closeMenuOnMobile() {
+    // Close menu on mobile after navigation
+    if (window.innerWidth < 768) {
+      this.menuOpen.set(false);
+    }
   }
 }

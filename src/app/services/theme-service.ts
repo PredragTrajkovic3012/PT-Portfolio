@@ -17,7 +17,7 @@ interface ThemeColor {
   providedIn: 'root',
 })
 export class ThemeService {
-  darkMode = signal(true);
+  darkMode = signal(window.matchMedia('(prefers-color-scheme: dark)').matches);
   currentColor = signal<ThemeColor>({
     name: 'blue',
     value: '#2563eb',

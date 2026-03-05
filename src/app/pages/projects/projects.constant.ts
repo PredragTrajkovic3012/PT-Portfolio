@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   {
     id: 0,
     name: 'Only Smart Bets - Tipster Intelligence Platform',
-    company: 'Personal Project (with Stefan)',
+    company: 'Personal Project',
     location: 'Belgrade, Serbia',
     period: 'January 2026 – Present',
     position: 'Frontend Developer',

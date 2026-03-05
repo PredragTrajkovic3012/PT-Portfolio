@@ -24,10 +24,9 @@
           @for (info of contactInfo; track info.label) {
             <div class="contact-item">
               <div class="flex items-center gap-3">
-                <fa-icon
-                  [icon]="info.icon"
-                  class="text-xl contact-icon"
-                ></fa-icon>
+                <mat-icon class="text-xl contact-icon">{{
+                  info.icon
+                }}</mat-icon>
                 <div class="flex-1">
                   <p class="text-sm text-gray-500 dark:text-gray-400">
                     {{ info.label }}
@@ -43,7 +42,7 @@
                       class="text-sm opacity-60 hover:opacity-100 transition-opacity"
                       title="Copy to clipboard"
                     >
-                      <fa-icon [icon]="faCopy" class="text-sm"></fa-icon>
+                      <mat-icon class="text-sm">content_copy</mat-icon>
                     </button>
                   </a>
                 </div>
@@ -69,7 +68,7 @@
               [style.--hover-color]="social.color"
               [title]="social.name"
             >
-              <fa-icon [icon]="social.icon" class="text-3xl"></fa-icon>
+              <mat-icon class="text-3xl">{{ social.icon }}</mat-icon>
               <p class="mt-2 text-sm font-medium">{{ social.name }}</p>
             </a>
           }
@@ -166,7 +165,7 @@
             class="submit-btn w-full"
           >
             <span class="flex items-center justify-center gap-2">
-              <fa-icon [icon]="faPaperPlane" *ngIf="!isLoading()"></fa-icon>
+              <mat-icon *ngIf="!isLoading()">send</mat-icon>
               {{ isLoading() ? "Sending..." : "Send Message" }}
             </span>
           </button>

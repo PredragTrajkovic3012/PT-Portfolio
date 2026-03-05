@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ThemeService } from '../../services/theme-service';
 import { Project, PROJECTS } from './projects.constant';
 import { ProjectDetailDialogComponent } from './project-detail-dialog.component';
@@ -10,7 +9,7 @@ import { getSkillIcon } from './skill-icons.constant';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
@@ -26,8 +25,8 @@ export class Projects {
     return getSkillIcon(skill) !== null;
   }
 
-  getIconDefinition(skill: string): IconDefinition {
-    return getSkillIcon(skill) || ({} as IconDefinition);
+  getIconDefinition(skill: string): string {
+    return getSkillIcon(skill) || 'code';
   }
 
   openProjectDialog(project: Project): void {

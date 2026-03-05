@@ -2,15 +2,13 @@ import { Component, Inject, signal } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Project } from './projects.constant';
 import { getSkillIcon } from './skill-icons.constant';
 
 @Component({
   selector: 'app-project-detail-dialog',
   standalone: true,
-  imports: [CommonModule, MatIconModule, FontAwesomeModule],
+  imports: [CommonModule, MatIconModule],
   template: `
     <div
       class="dialog-content"
@@ -130,10 +128,9 @@ import { getSkillIcon } from './skill-icons.constant';
                 [title]="skill"
               >
                 @if (hasIcon(skill)) {
-                  <fa-icon
-                    [icon]="getIconDefinition(skill)"
-                    class="text-sm"
-                  ></fa-icon>
+                  <mat-icon class="text-sm">{{
+                    getIconDefinition(skill)
+                  }}</mat-icon>
                 }
                 {{ skill }}
               </span>
@@ -330,7 +327,7 @@ export class ProjectDetailDialogComponent {
     return colorMap[this.data.themeColor.name] || '#2563eb';
   }
 
-  getSkillIcon(skill: string): IconDefinition | null {
+  getSkillIcon(skill: string): string | null {
     return getSkillIcon(skill);
   }
 
@@ -338,8 +335,8 @@ export class ProjectDetailDialogComponent {
     return getSkillIcon(skill) !== null;
   }
 
-  getIconDefinition(skill: string): IconDefinition {
-    return getSkillIcon(skill) || ({} as IconDefinition);
+  getIconDefinition(skill: string): string {
+    return getSkillIcon(skill) || 'code';
   }
 
   close(): void {

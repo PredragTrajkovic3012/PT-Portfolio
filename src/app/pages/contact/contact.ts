@@ -6,23 +6,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 import emailjs from '@emailjs/browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {
-  faEnvelope,
-  faPhone,
-  faPaperPlane,
-  faCopy,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faLinkedin,
-  faInstagram,
-} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-contact',
-  imports: [ReactiveFormsModule, CommonModule, FontAwesomeModule],
+  imports: [ReactiveFormsModule, CommonModule, MatIconModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -32,27 +21,18 @@ export class Contact {
   submitMessage = signal('');
   copiedField = signal<string | null>(null);
 
-  // Icons and contact info
-  faEnvelope = faEnvelope;
-  faPhone = faPhone;
-  faGithub = faGithub;
-  faLinkedin = faLinkedin;
-  faInstagram = faInstagram;
-  faPaperPlane = faPaperPlane;
-  faCopy = faCopy;
-
   contactInfo = [
     {
       label: 'Email',
       value: 'ptrajkovic997@gmail.com',
       href: 'mailto:ptrajkovic997@gmail.com',
-      icon: this.faEnvelope,
+      icon: 'email',
     },
     {
       label: 'Phone',
       value: '+381 61 343 4336',
       href: 'tel:+381613434336',
-      icon: this.faPhone,
+      icon: 'call',
     },
   ];
 
@@ -60,19 +40,19 @@ export class Contact {
     {
       name: 'GitHub',
       url: 'https://github.com/PredragTrajkovic3012',
-      icon: this.faGithub,
+      icon: 'language',
       color: '#333',
     },
     {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/predrag-trajkovic-1b8929155/',
-      icon: this.faLinkedin,
+      icon: 'business',
       color: '#0a66c2',
     },
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/predragtrajkovic4/',
-      icon: this.faInstagram,
+      icon: 'photo_camera',
       color: '#e4405f',
     },
   ];

@@ -1,69 +1,47 @@
-import {
-  faHtml5,
-  faCss3Alt,
-  faJs,
-  faAngular,
-  faReact,
-  faPython,
-  faJava,
-  faDocker,
-  faNode,
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faDatabase,
-  faCode,
-  faWrench,
-  faBolt,
-  faBrain,
-  faGear,
-  faSync,
-  IconDefinition,
-} from '@fortawesome/free-solid-svg-icons';
-
-export const SKILL_ICONS: Record<string, IconDefinition> = {
+export const SKILL_ICONS: Record<string, string> = {
   // Frontend
-  HTML5: faHtml5,
-  HTML: faHtml5,
-  CSS: faCss3Alt,
-  CSS3: faCss3Alt,
-  JavaScript: faJs,
-  TypeScript: faCode,
-  Angular: faAngular,
-  'Angular v19': faAngular,
-  React: faReact,
-  RxJS: faSync,
-  Signals: faBolt,
-  'Signal Store': faBolt,
-  NGRX: faCode,
-  'Tailwind CSS': faWrench,
-  PrimeNG: faCode,
-  Drupal: faCode,
-  'Responsive Design': faGear,
-  'Responsive UI Development': faGear,
+  HTML5: 'language',
+  HTML: 'language',
+  CSS: 'style',
+  CSS3: 'style',
+  JavaScript: 'code',
+  TypeScript: 'code',
+  Angular: 'layers',
+  'Angular v19': 'layers',
+  React: 'layers',
+  RxJS: 'autorenew',
+  Signals: 'electric_bolt',
+  'Signal Store': 'electric_bolt',
+  NGRX: 'code',
+  'Tailwind CSS': 'tune',
+  PrimeNG: 'code',
+  Drupal: 'code',
+  'Responsive Design': 'dashboard',
+  'Responsive UI Development': 'dashboard',
 
   // Backend
-  Python: faPython,
-  Django: faCode,
-  Java: faJava,
-  'Java Spring': faJava,
-  NodeJS: faNode,
-  'Node.js': faNode,
+  Python: 'code',
+  Django: 'code',
+  Java: 'coffee',
+  'Java Spring': 'coffee',
+  NodeJS: 'router',
+  'Node.js': 'router',
 
   // Database & DevOps
-  SQL: faDatabase,
-  Docker: faDocker,
-  'REST APIs': faCode,
-  Microservices: faCode,
-  'API Integration': faCode,
+  SQL: 'storage',
+  Docker: 'cloud',
+  'REST APIs': 'api',
+  Microservices: 'code',
+  'API Integration': 'api',
 
   // Other
-  'Machine Learning': faBrain,
-  'Data Processing': faGear,
-  'AI-assisted Features': faBrain,
-  'Real-time Data Handling': faBolt,
-  'Sports Betting Systems': faCode,
+  'Machine Learning': 'smart_toy',
+  'Data Processing': 'storage',
+  'AI-assisted Features': 'smart_toy',
+  'Real-time Data Handling': 'electric_bolt',
+  'Sports Betting Systems': 'code',
 };
 
-export function getSkillIcon(skill: string): IconDefinition | null {
+export function getSkillIcon(skill: string): string | null {
   return SKILL_ICONS[skill] || null;
 }

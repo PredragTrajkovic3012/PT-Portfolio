@@ -61,10 +61,9 @@
               [title]="skill"
             >
               @if (hasIcon(skill)) {
-                <fa-icon
-                  [icon]="getIconDefinition(skill)"
-                  class="text-xs"
-                ></fa-icon>
+                <mat-icon class="text-xs">{{
+                  getIconDefinition(skill)
+                }}</mat-icon>
               }
               {{ skill }}
             </span>

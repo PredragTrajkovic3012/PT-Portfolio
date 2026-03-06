@@ -37,12 +37,16 @@
 
     <!-- IMAGE -->
     <div class="md:w-1/2 flex justify-center">
-      <img
-        #profileImg
-        [src]="profileImage()"
-        alt="Profile image"
-        class="w-40 sm:w-48 md:w-64 h-fit object-cover rounded-2xl shadow-lg profile-image-animate max-w-xl"
-      />
+      <div
+        class="w-40 sm:w-48 md:w-64 aspect-square overflow-hidden rounded-2xl shadow-lg"
+      >
+        <img
+          #profileImg
+          [src]="profileImage()"
+          alt="Profile image"
+          class="w-full h-full object-cover profile-image-animate"
+        />
+      </div>
     </div>
   </div>
 
